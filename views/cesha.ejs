@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>Cesa ki Website</h1>
+    <% postsWithImages.forEach(function(post){ %>
+
+    <% var startDate = new Date(post.eventDate); %>
+    <% var currentDate = new Date(); %>
+
+    <% var timeRemaining = startDate - currentDate; %>
+    <% var daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24)); %>
+    <% var hoursRemaining = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); %>
+    <% var minutesRemaining = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60)); %>
+    <% var secondsRemaining = Math.floor((timeRemaining % (1000 * 60)) / 1000); %>
+
+    <% if (timeRemaining <= 0) { %>
+        <a event_id = "<%=post._id%>" id="shift">huuu</a>
+        <% return; %>
+    <% } %>
+
+        <div class="card w-auto">
+            <div class=" w-full max-h-72 bg-zinc-500 rounded-lg overflow-hidden">
+                <img class="w-full object-cover" src="<%= post.imageBase64 %>" alt="">
+            </div>
+            <h1 class="inline-block font-bold text-xl md:text-2xl lg:text-3xl  p-3 pb-1 text-black"><%=post.title%></h1>
+            <h5 class="opacity-95 px-3 text-black text-lg md:text-xl lg:text-2xl"><%=post.description%></h5>
+        </div>
+        <% if (arr.includes(post._id)) { %>
+            <p class="text-red-500">You are registered for this event</p>
+        <% } else { %>
+            <a href="#" class="post-link" id="<%= post._id %>">Register</a>
+        <% } %>
+
+        <div id="countdown" class="text-gray-500">
+            Event starts in: 
+            <span id="days<%= post._id %>"><%= daysRemaining %></span> days, 
+            <span id="hours<%= post._id %>"><%= hoursRemaining %></span> hours, 
+            <span id="minutes<%= post._id %>"><%= minutesRemaining %></span> minutes,
+            <span id="seconds<%= post._id %>"><%= secondsRemaining %></span> seconds
+
+        </div>
+
+    <% }) %>
+    <!---------------------------------------- -->
+    
+    <h1>Past Events</h1>    
+    <% pastEvent.forEach(function(post){ %>
+        <div class="card w-auto">
+            <div class=" w-full max-h-72 bg-zinc-500 rounded-lg overflow-hidden">
+                <img class="w-full object-cover" src="<%= post.imageBase64 %>" alt="">
+            </div>
+            <h1 class="inline-block font-bold text-xl md:text-2xl lg:text-3xl  p-3 pb-1 text-black"><%=post.title%></h1>
+            <h5 class="opacity-95 px-3 text-black text-lg md:text-xl lg:text-2xl"><%=post.description %></h5>
+        </div>
+    <% }) %>
+
+
+
+
+    <!---------------------------------------- -->
+    <h1>our team</h1>
+    <% team.forEach(function(post){ %>
+        <div class="card w-auto">
+            <div class=" w-full max-h-72 bg-zinc-500 rounded-lg overflow-hidden">
+                <img class="w-full object-cover" src="<%= post.imageBase64 %>" alt="">
+            </div>
+            <h1 class="inline-block font-bold text-xl md:text-2xl lg:text-3xl  p-3 pb-1 text-black"><%=post.name%></h1>
+            <h5 class="opacity-95 px-3 text-black text-lg md:text-xl lg:text-2xl"><%=post.post%></h5>
+        </div>
+    <% }) %>
+    
+
+    <form id="postWithImagesForm" data-posts='<%= JSON.stringify(postsWithImages) %>' class="hidden">
+      
+    </form>
+    
+    <script>
+    var postWithImagesForm = document.getElementById('postWithImagesForm');
+    var postsWithImages = JSON.parse(postWithImagesForm.getAttribute('data-posts'));
+    console.log(postsWithImages)
+
+
+    setInterval(function() {
+        postsWithImages.forEach(function(post) {
+            var startDate = new Date(post.eventDate);
+            var currentDate = new Date();
+            var timeRemaining = startDate - currentDate;
+            var daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            var hoursRemaining = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutesRemaining = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            var secondsRemaining = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            if (timeRemaining <= 0) {
+                return;
+            }
+
+            document.getElementById('days' + post._id).innerText = daysRemaining;
+            document.getElementById('hours' + post._id).innerText = hoursRemaining;
+            document.getElementById('minutes' + post._id).innerText = minutesRemaining;
+            document.getElementById('seconds' + post._id).innerText = secondsRemaining;
+        });
+    }, 1000);
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const postLinks = document.querySelectorAll(".post-link");
+
+    const e = document.getElementById("shift");
+    const id = e.getAttribute("event_id");
+
+            // Prepare the data object to send in the POST request
+            const data = {
+                id: id,
+            };
+
+            // Create a hidden form element
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/shift'; // Replace with your endpoint URL
+
+            // Create a hidden input field for each data attribute
+            Object.keys(data).forEach(function(key) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            });
+
+            // Append the form to the document body and submit it
+            document.body.appendChild(form);
+            form.submit();
+       
+
+
+
+
+
+
+
+    postLinks.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default action (navigation)
+
+            const id = link.getAttribute("id");
+
+            // Prepare the data object to send in the POST request
+            const data = {
+                id: id,
+            };
+
+            // Create a hidden form element
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/go'; // Replace with your endpoint URL
+
+            // Create a hidden input field for each data attribute
+            Object.keys(data).forEach(function(key) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            });
+
+            // Append the form to the document body and submit it
+            document.body.appendChild(form);
+            form.submit();
+       
+        });
+    });
+});
+
+
+
+    </script>
+</body>
+</html>

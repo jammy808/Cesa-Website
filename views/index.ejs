@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/719584d9c7.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script src="./javascripts/main.js" defer></script>
+    <title>Document</title>
+</head>
+<body class="bg-white">
+    <div id="loading" class="w-screen h-screen bg-black flex justify-center ease-in-out">
+        <video id="video" src="./images/cesa.mp4" autoplay muted style="width: 60%;"></video>
+    </div>
+        
+
+
+    <div id="main" style="display: none;">
+        <header class="text-white p-1 lg:p-2 gap-1">
+            <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-4">
+     
+                 <!-- <i class='bx bx-menu text-xl md:text-3xl lg:text-4xl font-bold mt-1' id="menu-icon"></i> -->
+                 <div class="menu">
+                 <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+                 <label for="openSidebarMenu" class="sidebarIconToggle">
+                   <div class="spinner diagonal part-1 h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                   <div class="spinner horizontal h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                   <div class="spinner diagonal part-2 h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                 </label>
+                 <div id="sidebarMenu">
+                   <ul class="sidebarMenuInner bg-black h-screen absolute top-[-34px]">  
+                     <li><a href="/">Home </a></li>
+                     <li><a href="#NewEvents">New Events </a></li>
+                     <li><a href="#PastEvents">Past Events</a></li>
+                     <li><a href="#AboutUs">About Us</a></li>
+                     <li><a href="#OurTeam">Our Team</a></li>
+                     <li><a href="#">My Events</a></li>
+                   </ul>
+                 </div>
+     
+                 </div>
+                 
+            </div>
+     
+            <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-5">
+                 <a href="/login" id="btn" class="top-5 right-6 px-1 md:px-3 lg:px-5 py-1 font-bold text-sm md:text-base lg:text-xl">Login</a>
+            </div>
+        </header>  
+
+        <section class="w-full h-screen flex justify-center" >
+
+            <h1 id="heading" class="absolute top-[50%] font-extrabold text-6xl md:tex-8xl lg:text-9xl text-gradient-to-r from-cyan-500 to-blue-500">CESA <span>X</span> VIT</h1>
+
+        </section>
+
+        <section class="w-[100%] h-screen flex justify-center" id="NewEvents">
+            <div class="owl-carousel" id="owl">
+                <% event.forEach(function(ele){ %>
+                  <div class="text-white w-screen h-[55vh] md:h-[65vh] lg:h-[80vh]" style="background-image: url('<%= ele.imageBase64 %>');background-size: cover; background-position:center;background-repeat: no-repeat;">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-100 w-full"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100 w-full"></div>
+                    <h2 class="mt-2 font-extrabold text-xl md:text-3xl lg:text-5xl text-center absolute z-20 left-[3%] top-[70%]"><%= ele.title %></h2>
+                    <p class="absolute z-20 left-[3%] top-[80%] pt-3"><%= ele.description %></p>
+                    <a href="#" id="btn1" class="post-link absolute z-20 text-center px-5 py-1 rounded-3xl top-[89%] left-[3%] font-semibold lg:font-bold" data-title="<%= ele.title %>" data-picture="<%= ele.posterImage %>">Register</a>
+                  </div>
+                <% }) %>
+              </div>
+        </section>
+
+        <section class="w-screen h-screen text-center" id="AboutUs">
+            <h1 id="heading" class="font-extrabold text-5xl md:tex-6xl lg:text-7xl">About Us</h1>
+           <p class="text-white text-xl mt-56"> Tell something about cesa ,not really sure bout this section</p>
+        </section>
+
+        <section class="w-screen h-screen text-center" id="PastEvents">
+            <h1 id="heading" class="font-extrabold text-5xl md:tex-6xl lg:text-7xl">Past Events</h1>
+            <div class="owl-carousel mx-12 mt-6" id="owl">
+                <% pastEvent.forEach(function(ele){ %>
+                    <div class="w-[30%] h-[20%]">
+                        <img src="<%= ele.imageBase64 %>" alt="">     
+                        <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.title %></h1>
+                    </div>
+                  
+                <% }) %>
+              </div>
+        </section>
+
+        <section class="w-screen h-screen text-center " id="OurTeam">
+            <h1 id="heading" class="font-extrabold text-5xl md:tex-6xl lg:text-7xl">Our Team</h1>
+            <div class="mx-12 mt-6 flex justify-center gap-10" id="">
+                <% team.forEach(function(ele){ %>
+                    <div class="w-[30%] h-[30%]">
+                        <img src="<%= ele.imageBase64 %>" alt="" class="rounded-[50%]">     
+                        <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.name %></h1>
+                    </div>
+                  
+                <% }) %>
+              </div>
+        </section>
+
+    </div>
+
+        <script>
+            const loadingPage = document.getElementById('loading');
+            const mainPage = document.getElementById('main');
+            
+            
+            function showMainPage() {
+            loadingPage.style.display = 'none';
+            mainPage.style.display = 'block';
+            }
+            
+            
+            document.getElementById('video').addEventListener('ended', showMainPage);
+        </script>
+        
+</body>
+</html>
