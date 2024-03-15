@@ -60,7 +60,9 @@
 
         </section>
 
-        <section class="w-[100%] h-screen flex justify-center" id="NewEvents">
+        <h1 id="heading" class="font-extrabold text-5xl md:tex-6xl lg:text-7xl mt-24 mb-12 text-center">New Events</h1>
+        <section class="w-[100%] h-[100vh] flex justify-center" id="NewEvents">
+            
             <div class="owl-carousel" id="owl">
                 <% event.forEach(function(ele){ %>
                   <div class="text-white w-screen h-[55vh] md:h-[65vh] lg:h-[80vh]" style="background-image: url('<%= ele.imageBase64 %>');background-size: cover; background-position:center;background-repeat: no-repeat;">
@@ -68,7 +70,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-100 w-full"></div>
                     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100 w-full"></div>
                     <h2 class="mt-2 font-extrabold text-xl md:text-3xl lg:text-5xl text-center absolute z-20 left-[3%] top-[70%]"><%= ele.title %></h2>
-                    <p class="absolute z-20 left-[3%] top-[80%] pt-3"><%= ele.description %></p>
+                    <p class="absolute z-20 left-[3%] top-[80%] pt-1"><%= ele.description %></p>
                     <a href="#" id="btn1" class="post-link absolute z-20 text-center px-5 py-1 rounded-3xl top-[89%] left-[3%] font-semibold lg:font-bold" data-title="<%= ele.title %>" data-picture="<%= ele.posterImage %>">Register</a>
                   </div>
                 <% }) %>

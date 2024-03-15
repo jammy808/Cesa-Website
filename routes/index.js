@@ -107,7 +107,7 @@ function isLoggedIn(req,res,next){
 async function isAdminIn(req,res,next){
   if(req.isAuthenticated()){
     const admin =  req.session.passport.user;
-    if(admin === "k"){
+    if(admin === "nunuj"){
       return next();
     }
   }

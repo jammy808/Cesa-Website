@@ -2,6 +2,7 @@
 $(document).ready(function(){
     $('.owl-carousel').owlCarousel({
       loop:true,
+      margin:0,
       autoplay:true, // Add this line to enable autoplay
       autoplayTimeout:3000,
       responsive:{
