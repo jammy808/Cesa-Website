@@ -32,7 +32,7 @@
             <h1 class="inline-block font-bold text-xl md:text-2xl lg:text-3xl  p-3 pb-1 text-black"><%=post.title%></h1>
             <h5 class="opacity-95 px-3 text-black text-lg md:text-xl lg:text-2xl"><%=post.description%></h5>
         </div>
-        <% if (arr.includes(post._id)) { %>
+        <% if (arr != null && arr.includes(post._id)) { %>
             <p class="text-red-500">You are registered for this event</p>
         <% } else { %>
             <a href="#" class="post-link" id="<%= post._id %>">Register</a>
@@ -113,39 +113,35 @@
     document.addEventListener("DOMContentLoaded", function() {
     const postLinks = document.querySelectorAll(".post-link");
 
-    const e = document.getElementById("shift");
-    const id = e.getAttribute("event_id");
+    // const e = document.getElementById("shift");
+    // const id = e.getAttribute("event_id");
 
-            // Prepare the data object to send in the POST request
-            const data = {
-                id: id,
-            };
+    //         // Prepare the data object to send in the POST request
+    //         const data = {
+    //             id: id,
+    //         };
 
-            // Create a hidden form element
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '/shift'; // Replace with your endpoint URL
+    //         // Create a hidden form element
+    //         const form = document.createElement('form');
+    //         form.method = 'POST';
+    //         form.action = '/shift'; // Replace with your endpoint URL
 
-            // Create a hidden input field for each data attribute
-            Object.keys(data).forEach(function(key) {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = data[key];
-                form.appendChild(input);
-            });
+    //         // Create a hidden input field for each data attribute
+    //         Object.keys(data).forEach(function(key) {
+    //             const input = document.createElement('input');
+    //             input.type = 'hidden';
+    //             input.name = key;
+    //             input.value = data[key];
+    //             form.appendChild(input);
+    //         });
 
-            // Append the form to the document body and submit it
-            document.body.appendChild(form);
-            form.submit();
+    //         // Append the form to the document body and submit it
+    //         document.body.appendChild(form);
+    //         form.submit();
        
 
 
-
-
-
-
-
+    
     postLinks.forEach(function(link) {
         link.addEventListener("click", function(event) {
             event.preventDefault(); // Prevent the default action (navigation)
@@ -179,6 +175,36 @@
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const e = document.getElementById("shift");
+    const id = e.getAttribute("event_id");
+
+            // Prepare the data object to send in the POST request
+            const data = {
+                id: id,
+            };
+
+            // Create a hidden form element
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/shift'; // Replace with your endpoint URL
+
+            // Create a hidden input field for each data attribute
+            Object.keys(data).forEach(function(key) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            });
+
+            // Append the form to the document body and submit it
+            document.body.appendChild(form);
+            form.submit();
+       
+});
 
 
     </script>

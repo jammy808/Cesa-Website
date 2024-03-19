@@ -16,6 +16,8 @@ const studentSchema = mongoose.Schema({
 
   username : String, 
   password : String,
+  email : String,
+  verified : Boolean,
   events : [{
     type : mongoose.Schema.Types.ObjectId,
     ref : "Event"
