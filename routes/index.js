@@ -409,7 +409,7 @@ router.post('/showEvent', function(req, res){
 //send mail
 const sendVerificationEmail = ({_id,email},res) => {
 
-  const currentUrl = "http://localhost:3000/";
+  const currentUrl = "https://cesavit-chi.vercel.app/";
 
   const uniqueString = uuidv4() + _id;
 
