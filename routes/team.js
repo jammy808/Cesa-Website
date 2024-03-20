@@ -4,6 +4,7 @@ const teamSchema = mongoose.Schema({
   
   name : String,
   post : String,
+  pos : String,
   image : String,
   
 })

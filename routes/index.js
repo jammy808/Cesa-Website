@@ -129,6 +129,30 @@ router.get('/',async function(req, res, next) {
   res.render('index',{event : postsWithImages, nav : true , team : theTeam ,pastEvent :pastEvent ,arr : arr});
 });
 
+router.get('/team',async function(req , res, next){
+  const teams = await teamModel.find({ post: "Convenor" });
+
+  const team = await Promise.all(teams.map(async (post) => {
+    const downloadStream = bucket.openDownloadStreamByName(post.image);
+    
+    let imageBase64 = '';
+    downloadStream.on('data', (chunk) => {
+      imageBase64 += chunk.toString('base64');
+    });
+
+    await new Promise((resolve) => {
+      downloadStream.on('end', () => {
+        post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
+        //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
+        resolve();
+      });
+    });
+    
+    return post;
+  }));
+  res.render('team',{team});
+})
+
 function isLoggedIn(req,res,next){
   if(req.isAuthenticated()){
     return next();
@@ -290,6 +314,7 @@ router.post('/createTeam', async function(req, res, next) { //
       const team = await teamModel.create({
         name: req.body.name,
         post : req.body.post,
+        pos : req.body.pos,
         image: uploadedFile.name
       });
 
@@ -400,8 +425,31 @@ router.post('/shift',async function(req,res,next){
   res.redirect('/');
 })
 
-router.post('/showEvent', function(req, res){
-  
+router.post('/fetchTeam',async function(req, res){
+  const post = req.body.post;
+  const teams = await teamModel.find({ post: post });
+
+  const team = await Promise.all(teams.map(async (post) => {
+    const downloadStream = bucket.openDownloadStreamByName(post.image);
+    
+    let imageBase64 = '';
+    downloadStream.on('data', (chunk) => {
+      imageBase64 += chunk.toString('base64');
+    });
+
+    await new Promise((resolve) => {
+      downloadStream.on('end', () => {
+        post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
+        //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
+        resolve();
+      });
+    });
+    
+    return post;
+  }));
+  console.log(team);
+
+  res.render('team',{team});
 });
 
 

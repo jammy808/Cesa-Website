@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/719584d9c7.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script src="./javascripts/team.js" defer></script>
+    <link rel="stylesheet" href="./stylesheets/teamStyle.css">
+</head>
+<body>
+    
+    <div class="absolute z-50">
+        <header class="text-white p-1 lg:p-2 gap-1">
+            <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-4">
+     
+                 <!-- <i class='bx bx-menu text-xl md:text-3xl lg:text-4xl font-bold mt-1' id="menu-icon"></i> -->
+                 <div class="menu">
+                 <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+                 <label for="openSidebarMenu" class="sidebarIconToggle">
+                   <div class="spinner diagonal part-1 h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                   <div class="spinner horizontal h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                   <div class="spinner diagonal part-2 h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                 </label>
+                 <div id="sidebarMenu">
+                   <ul class="sidebarMenuInner bg-black h-screen absolute top-[-34px]">  
+                     <li><a href="/">Home </a></li>
+                     <li><a href="#NewEvents">New Events </a></li>
+                     <li><a href="#PastEvents">Past Events</a></li>
+                     <li><a href="#AboutUs">About Us</a></li>
+                     <li><a href="/team">Our Team</a></li>
+                     <li><a href="#">My Events</a></li>
+                   </ul>
+                 </div>
+     
+                 </div>
+                 
+            </div>
+     
+            <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-5">
+                 <a href="/login" id="btn" class="top-5 right-6 px-1 md:px-3 lg:px-5 py-1 font-bold text-sm md:text-base lg:text-xl">Login</a>
+            </div>
+        </header>      
+    </div>
+    
+    <section class="w-screen w-screen mt-16">
+        <div class="owl-carousel" id="owl">
+          <a class="a text-white px-4 py-2 text-lg font-bold rounded-3xl ml-8" post="Convenor">Conve..</a>
+          <a class="a text-white px-4 py-2 text-lg font-bold rounded-3xl ml-8" post="Technical">Tech</a>
+          <a class="a text-white px-4 py-2 text-lg font-bold rounded-3xl ml-8" post="Publicity">Pubs</a>
+          <a class="a text-white px-4 py-2 text-lg font-bold rounded-3xl ml-8" post="Events">Events</a>
+          <a class="a text-white px-4 py-2 text-lg font-bold rounded-3xl ml-8" post="Documentation">Docs</a>
+        </div>
+
+        <div class="mx-12 mt-6 flex justify-center gap-10" id="">
+          <% team.forEach(function(ele){ %>
+              <% if (ele.pos == "Head") { %>
+                <div class="w-[30%] h-[30%] animated-div">
+                  <img src="<%= ele.imageBase64 %>" alt="" class=" rounded-[50%]">     
+                    <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.name %></h1>
+                    <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.post %> Head</h1>
+                </div>
+              <% } %>
+
+              <% if (ele.post == "Convenor") { %>
+                <div class="w-[30%] h-[30%] animated-div delay-0">
+                  <img src="<%= ele.imageBase64 %>" alt="" class=" rounded-[50%]">     
+                    <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.name %></h1>
+                    <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.post %></h1>
+                </div>
+              <% } %>
+
+          <% }) %>
+        </div>
+
+        <div class="mx-12 mt-6 flex justify-center gap-10" id="">
+          <% team.forEach(function(ele){ %>
+              <% if (ele.pos == "Core") { %>
+                <div class="w-[30%] h-[30%] animated-div delay-1">
+                  <img src="<%= ele.imageBase64 %>" alt="" class=" rounded-[50%]">     
+                    <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.name %></h1>
+                    <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.post %> Core</h1>
+                </div>
+              <% } %>
+          <% }) %>
+        </div>
+        
+    </section>
+
+</body>
+</html>
