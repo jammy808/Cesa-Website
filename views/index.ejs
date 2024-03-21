@@ -22,7 +22,7 @@
         
 
 
-    <div id="main" style="display: none;">
+    <div id="main" style="">
         <div class="absolute z-50">
             <header class="text-white p-1 lg:p-2 gap-1">
                 <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-4">
@@ -122,16 +122,31 @@
 
         <section class="w-screen h-screen text-center" id="PastEvents">
             <h1 id="heading" class="font-extrabold text-5xl md:tex-6xl lg:text-7xl">Past Events</h1>
-            <div class="owl-carousel mx-12 mt-6" id="owl">
-                <% pastEvent.forEach(function(ele){ %>
+            <div class="mx-12 mt-6 flex justify-evenly">
+                
                     <div class="w-[30%] h-[20%]">
-                        <img src="<%= ele.imageBase64 %>" alt="">     
-                        <h1 class="text-white mt-3 font-bold text-3xl"><%=ele.title %></h1>
+                        <img src="<%= pastEvent[0].imageBase64 %>" alt="">     
+                        <h1 class="text-white mt-3 font-bold text-3xl"><%=pastEvent[0].title %></h1>
+                    </div>
+
+                    <div class="w-[30%] h-[20%]">
+                        <img src="<%= pastEvent[1].imageBase64 %>" alt="">     
+                        <h1 class="text-white mt-3 font-bold text-3xl"><%=pastEvent[1].title %></h1>
+                    </div>
+
+                    <div class="w-[30%] h-[20%]">
+                        <img src="<%= pastEvent[2].imageBase64 %>" alt="">     
+                        <h1 class="text-white mt-3 font-bold text-3xl"><%=pastEvent[2].title %></h1>
                     </div>
                   
-                <% }) %>
               </div>
+              
+              <div class="mt-10">
+                <a href="/events" class="see text-white text-3xl font-bold"> See More </a>
+            </div>
         </section>
+
+       
 
         <!-- <section class="w-screen h-screen text-center " id="OurTeam">
             <h1 id="heading" class="font-extrabold text-5xl md:tex-6xl lg:text-7xl">Our Team</h1>
@@ -148,7 +163,7 @@
 
     </div>
 
-        <script>
+        <!-- <script>
             const loadingPage = document.getElementById('loading');
             const mainPage = document.getElementById('main');
             
@@ -160,7 +175,9 @@
             
             
             document.getElementById('video').addEventListener('ended', showMainPage);
-        </script>
+        </script> -->
+
+        
         
 </body>
 </html>

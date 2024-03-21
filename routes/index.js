@@ -153,6 +153,30 @@ router.get('/team',async function(req , res, next){
   res.render('team',{team});
 })
 
+router.get('/events',async function(req , res, next){
+  const events = await pastEventModel.find();
+
+  const event = await Promise.all(events.map(async (post) => {
+    const downloadStream = bucket.openDownloadStreamByName(post.image);
+    
+    let imageBase64 = '';
+    downloadStream.on('data', (chunk) => {
+      imageBase64 += chunk.toString('base64');
+    });
+
+    await new Promise((resolve) => {
+      downloadStream.on('end', () => {
+        post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
+        //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
+        resolve();
+      });
+    });
+    
+    return post;
+  }));
+  res.render('events',{event});
+})
+
 function isLoggedIn(req,res,next){
   if(req.isAuthenticated()){
     return next();

@@ -189,8 +189,14 @@
   .animated-div {
     opacity: 0;
     transform: translateY(20px); /* Initial position */
-    animation: fadeAndTranslate 1s ease forwards;
-}
+  
+    animation: fadeAndTranslate 5s ease forwards;
+  }
+
+  .animated {
+    opacity: 0;
+    transform: translateY(20px); /* Initial position */
+  }
 
 @keyframes fadeAndTranslate {
     from {

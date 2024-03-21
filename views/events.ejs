@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/719584d9c7.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="./javascripts/team.js" defer></script>
+    <link rel="stylesheet" href="./stylesheets/teamStyle.css">
+</head>
+<body>
+
+    <div class="absolute z-50">
+        <header class="text-white p-1 lg:p-2 gap-1">
+            <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-4">
+     
+                 <!-- <i class='bx bx-menu text-xl md:text-3xl lg:text-4xl font-bold mt-1' id="menu-icon"></i> -->
+                 <div class="menu">
+                 <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+                 <label for="openSidebarMenu" class="sidebarIconToggle">
+                   <div class="spinner diagonal part-1 h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                   <div class="spinner horizontal h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                   <div class="spinner diagonal part-2 h-[2px] md:h-[3px] lg:h-[4px]"></div>
+                 </label>
+                 <div id="sidebarMenu">
+                   <ul class="sidebarMenuInner bg-black h-screen absolute top-[-34px]">  
+                     <li><a href="/">Home </a></li>
+                     <li><a href="/#NewEvents">New Events </a></li>
+                     <li><a href="/#PastEvents">Past Events</a></li>
+                     <li><a href="/#AboutUs">About Us</a></li>
+                     <li><a href="/team">Our Team</a></li>
+                     <li><a href="#">My Events</a></li>
+                   </ul>
+                 </div>
+     
+                 </div>
+                 
+            </div>
+     
+            <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-5">
+                 <a href="/login" id="btn" class="top-5 right-6 px-1 md:px-3 lg:px-5 py-1 font-bold text-sm md:text-base lg:text-xl">Login</a>
+            </div>
+        </header>      
+    </div>
+
+    <section class="">
+        <div class="mt-16">
+            <% event.forEach(function(ele,index){ %>
+                <div class="animated mb-16">
+                    <div class="flex w-[100%] justify-center">
+                        <img src="<%= ele.imageBase64 %>" class="w-[80%] h-[70%]" alt="">     
+                    </div>
+                    <div class="flex w-[100%] justify-center">
+                        <h1 class="text-white mt-3 font-bold text-3xl"><%= ele.title %></h1>
+                    </div>
+                </div>
+            <% }) %>
+        </div>    
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var animatedDivs = document.querySelectorAll(".animated");
+
+            animatedDivs.forEach(function(div, index) {
+                // Add animation delay dynamically
+                div.style.animation = "fadeAndTranslate 0.9s ease forwards";
+                div.style.animationDelay = (index * 1) + "s";
+            });
+        });
+    </script>
+</body>
+</html>
