@@ -10,8 +10,6 @@
 }
 body{
   overflow-x: hidden;
-  background-image: url("https://img.freepik.com/premium-photo/black-texture-with-micro-relief-glitter-similar-night-sky-with-stars_328295-503.jpg");
-  
 }
 
 header{
@@ -27,20 +25,25 @@ header{
 }
 
 #heading{
-  background: -webkit-linear-gradient(left, #fff23a , #00ffcc);
+  background: -webkit-linear-gradient(left, rgba(75, 82, 100, 1) , rgba(242, 150, 109, 1));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#heading2{
+  background: -webkit-linear-gradient(left, rgb(31, 31, 80) ,rgb(250, 119, 67));
   -webkit-background-clip: text;
   color: transparent;
 }
 #btn{
-  background: -webkit-linear-gradient(left, #fff23a , #00ffcc);
+  background: -webkit-linear-gradient(left, rgba(255, 237, 173, 1),  rgba(242, 150, 109, 1));
   -webkit-background-clip: text;
   color: transparent;
 }
 #btn1{
-  background: -webkit-linear-gradient(left, #fff23a , #00ffcc);
+  background: -webkit-linear-gradient(left,  rgba(255, 237, 173, 1),  rgba(242, 150, 109, 1));
 }
 .spinner{
-  background: -webkit-linear-gradient(left, #fff23a , #00ffcc);
+  background: -webkit-linear-gradient(left, rgba(255, 237, 173, 1),  rgba(242, 150, 109, 1));
 }
 
 #owl{
