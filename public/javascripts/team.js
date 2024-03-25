@@ -1,10 +1,8 @@
 $(document).ready(function(){
     $('.owl-carousel').owlCarousel({
-      loop: false,
-      margin: 10,
-      nav: true,
        // Add this line to enable autoplay
       autoplayTimeout:3000,
+      margin: 10,
       responsive:{
         0:{
           items:3
