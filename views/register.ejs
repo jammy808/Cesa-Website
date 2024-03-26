@@ -37,14 +37,21 @@
 
     
         <div class="w-screen flex justify-center">
-            <form class="text-center px-3 py-10 ml-[.5rem]" method="post" action="/studentLog">
+            <form class="text-center px-3 py-10 ml-[.5rem]" method="post" action="/studentReg">
   
-                <h3 class="font-bold">Log In</h3>
+                <h3 class="font-bold">Register</h3>
                 
                 <div class="inputbox">
                   <label>Username</label>
                   <input type="text" class="email" name="username" required>
                   <p class="msg"></p>
+                </div>
+
+                <div class="inputbox">
+                    <label>Email-id</label>
+                    <input type="email" name="email">
+                    
+                    <p class="msg"></p>
                 </div>
                 
                 
@@ -56,13 +63,13 @@
               
                 
                 
-                <input type="submit" value="log in" class="submit">
+                <input type="submit" value="sign up" class="submit">
                 
                 
                 
                 <p class="sign">
-                  New to CESA ?
-                  <a href="/register">Sign up now</a>.
+                  Already on CESA ?
+                  <a href="/login">Log in</a>.
                 </p>
                 
               </form>

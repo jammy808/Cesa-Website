@@ -392,6 +392,10 @@ router.get('/login', function(req, res){
   res.render('login');
 });
 
+router.get('/register',function(req,res,next){
+  res.render('register');
+})
+
 router.get('/logout', function(req, res){
   req.logout(function(err) {
     if (err) { return next(err); }
@@ -475,6 +479,11 @@ router.post('/fetchTeam',async function(req, res){
 
   res.render('team',{team});
 });
+
+router.get('/adminlog',function(req,res,next){
+  res.render('adminlog');
+})
+
 
 
 

@@ -15,7 +15,7 @@
     <script src="./javascripts/team.js" defer></script>
     <link rel="stylesheet" href="./stylesheets/teamStyle.css">
 </head>
-<body>
+<body style="background-color: #332052;">
     
     <div class="absolute z-50">
         <header class="text-white p-1 lg:p-2 gap-1">
@@ -36,7 +36,6 @@
                      <li><a href="#PastEvents">Past Events</a></li>
                      <li><a href="#AboutUs">About Us</a></li>
                      <li><a href="/team">Our Team</a></li>
-                     <li><a href="#">My Events</a></li>
                    </ul>
                  </div>
      
@@ -57,7 +56,7 @@
       </div>
   </section>
     
-    <section class="w-screen w-screen mt-16 absolute top-1">
+    <section class="w-screen mt-16 absolute top-1">
         <div class="owl-carousel" id="owl">
           <a class="a text-white px-4 py-2 text-lg font-bold rounded-3xl ml-4" post="Convenor">Conveynor.</a>
           <a class="a text-white px-4 py-2 text-lg font-bold rounded-3xl ml-12" post="Technical">Technical</a>
@@ -92,10 +91,10 @@
           <% }) %>
         </div>
 
-        <div class="mx-12 mt-6 flex justify-center gap-10" id="">
+        <div class="mb-12 mt-12 ml-[14%] md:ml-[11%] lg:ml-[10%] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="">
           <% team.forEach(function(ele){ %>
               <% if (ele.pos == "Core") { %>
-                <div class="w-[30%] h-[30%] animated-div delay-1 text-center">
+                <div class="w-[60%] h-[60%] animated-div delay-1 text-center">
                   
                   <div class="flex justify-center">
                     <img src="<%= ele.imageBase64 %>" alt="" class=" rounded-[50%]">  
