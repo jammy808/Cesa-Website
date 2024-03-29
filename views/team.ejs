@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="./images/circle-cropped.png" type="image/x-icon">
+    <title>CESA-VIT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/719584d9c7.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -33,8 +34,8 @@
                    <ul class="sidebarMenuInner bg-black h-screen absolute top-[-34px]">  
                      <li><a href="/">Home </a></li>
                      <li><a href="#NewEvents">New Events </a></li>
-                     <li><a href="#PastEvents">Past Events</a></li>
-                     <li><a href="#AboutUs">About Us</a></li>
+                     <li><a href="/events">Past Events</a></li>
+                     <li><a href="/#AboutUs">About Us</a></li>
                      <li><a href="/team">Our Team</a></li>
                    </ul>
                  </div>
@@ -49,7 +50,7 @@
         </header>      
     </div>
 
-    <section class="w-screen h-screen relative flex justify-center items-center"  style="background-color: #332052;">
+    <section class="w-screen h-screen relative flex justify-center items-center min-h-[120vh]"  style="background-color: #332052;">
       <div class="w-[100%] md:w-[70%] lg:w-[50%] absolute ">
           <!-- <div class="w-full h-[14%]" style="background-color: red;"></div> -->
           <img src="./images/gif1.gif" alt="" class="w-full mt-[0.2rem]">
@@ -108,7 +109,65 @@
           <% }) %>
         </div>
         
+      </section>
+
+      <section class="py-8 md:py-12" id="footer1-13">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <div class="mb-6">
+                        <a class="text-white text-4xl" href="/">CESA</a>
+                    </div>
+                    <div class="mb-6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.9576328343173!2d72.86854761490031!3d19.021588487119168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf394b345bdd%3A0x8d44ea4f85af3ceb!2sVidyalankar+Institute+of+Technology!5e0!3m2!1sen!2sin!4v1564939838462!5m2!1sen!2sin"
+                            width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-span-1 md:col-span-1 lg:col-span-1">
+                    <div class="mb-6">
+                        <h5 class="text-white text-lg md:text-xl lg:text-lg font-semibold mb-3">Address</h5>
+                        <p class="text-white">Vidyalankar Institute of Technology, Vidyalankar College Marg, Wadala (East),<br>Mumbai - 400037</p>
+                    </div>
+                </div>
+                <div class="col-span-1 md:col-span-1 lg:col-span-1">
+                    <div class="mb-6">
+                        <h5 class="text-white text-lg md:text-xl lg:text-lg font-semibold mb-3">Contacts</h5>
+                        <p class="text-white">Email: cesa.vidyalankar@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <!-- Empty -->
+                </div>
+            </div>
+            <hr class="border-white my-8 md:my-12">
+            <div class="flex flex-col md:flex-row justify-between items-center py-8 md:py-0">
+                <p class="text-white text-sm md:text-base lg:text-lg mb-4 md:mb-0">© Copyright 2023 CESA - All Rights Reserved</p>
+                <div class="flex items-center">
+                    <a class="soc-item me-4" href="https://www.linkedin.com/company/cesa-vit/" target="_blank">
+                        <span class="rounded-full bg-gray-200 hover:bg-gray-400 p-3">
+                            <i class="fab fa-linkedin text-lg" style="color: #0077b5;"></i>
+                        </span>
+                    </a>
+                    <a class="soc-item me-4" href="https://www.facebook.com/vitcesastudentchapter/" target="_blank">
+                        <span class="rounded-full bg-gray-200 hover:bg-gray-400 p-3">
+                            <i class="fa-brands fa-facebook text-lg" style="color: #0077b5;"></i>
+                        </span>
+                    </a>
+                    <a class="soc-item me-4" href="https://www.youtube.com/channel/UCHGGuIFztDY0d6_wN-GpxkQ" target="_blank">
+                        <span class="rounded-full bg-gray-200 hover:bg-gray-400 p-3">
+                            <i class="fab fa-youtube text-lg" style="color: #ff4d5a;"></i>
+                        </span>
+                    </a>
+                    <a class="soc-item me-4" href="https://instagram.com/cesavit_/" target="_blank">
+                        <span class="rounded-full bg-gray-200 hover:bg-gray-400 p-3">
+                            <i class="fab fa-instagram text-lg" style="color: #E4405F;"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
+
 
 </body>
 </html>
