@@ -339,6 +339,7 @@ router.post('/createTeam', async function(req, res, next) { //
         name: req.body.name,
         post : req.body.post,
         pos : req.body.pos,
+        title : req.body.title,
         image: uploadedFile.name
       });
 
