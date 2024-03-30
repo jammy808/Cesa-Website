@@ -126,7 +126,7 @@ router.get('/',async function(req, res, next) {
   //   return post;
   // }));
   // //, arr : student.events
-  res.render('index',{event : null, nav : true ,pastEvent :pastEvent ,arr : arr});
+  res.render('index',{event : null, nav : true ,arr : arr});
 });
 
 router.get('/team',async function(req , res, next){
