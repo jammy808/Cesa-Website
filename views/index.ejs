@@ -66,7 +66,7 @@
             </div>
 
             <h1 id="heading" class="absolute bottom-32 ml-4 font-extrabold text-3xl md:tex-5xl lg:text-7xl hidden lg:block">Computer Engineering <br>Student Association <br><span class="ml-1">(VIT)</span></h1>
-            <h1 id="heading" class="absolute bottom-60 md:bottom-96 font-extrabold text-3xl md:text-6xl lg:text-7xl block lg:hidden w-screen text-center">Civil Engineering <br>Student Association <br>(VIT)</h1>
+            <h1 id="heading" class="absolute bottom-60 md:bottom-96 font-extrabold text-3xl md:text-6xl lg:text-7xl block lg:hidden w-screen text-center">Computer Engineering <br>Student Association <br>(VIT)</h1>
 
         </section>
         
@@ -121,14 +121,45 @@
         </section>
         
 
-        <section class="w-screen h-screen text-center" id="AboutUs" style="background-color: rgba(15, 23, 42, 1)">
+        <section class="w-screen py-8 text-xl text-center" id="AboutUs" style="background-color: rgba(15, 23, 42, 1)">
             <h1 id="heading2" class="font-extrabold text-5xl md:tex-6xl lg:text-7xl pt-10">About Us</h1>
-           <p class="text-white text-xl mt-56"> Tell something about cesa ,not really sure bout this section</p>
+            <div class="flex md:flex-row flex-col">
+                <div class="text-white text-center flex flex-col justify-center items-center mx-16 lg:w-1/2">
+                    <h1 class="font-black text-4xl mb-8">"Code, Compete, Conquer with CESA!"</h1>
+                    <p> Welcome to CESA (Computer Engineering Students' Association), your gateway to a vibrant community of computer engineering enthusiasts at our college. As a dynamic committee under the Computer Department, we're dedicated to fostering innovation, learning, and collaboration through a diverse range of technical events like coding competitions, along with engaging non-technical activities. Join us to sharpen your skills, explore emerging technologies, and connect with like-minded peers, as we empower you to excel in the ever-evolving world of computer engineering</p>
+                </div>
+                <div class="text-white mx-8 lg:w-1/2">
+                    <div class="container mx-auto mt-8">
+                        <div class="grid grid-cols-8 gap-2">
+                            <div class="col-span-2 row-span-2">
+                                <img src="/images/EngineersDay2.jpeg" alt="Gallery image 1" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            <div class="col-span-2 row-span-2">
+                                <img src="/images/EngineersDay1.jpeg" alt="Gallery image 2" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            <div class="col-span-4 row-span-5">
+                                <img src="/images/funEvent1.jpeg" alt="Gallery image 3" class="w-full h-full object-cover rounded-lg ">
+                            </div>
+                            <div class="col-span-4 row-span-3">
+                                <img src="/images/grpPhoto.jpg" alt="Gallery image 4" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            <div class="col-span-4 row-span-3">
+                                <img src="/images/Codding.jpg" alt="Gallery image 5" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            <div class="col-span-4 row-span-3">
+                                <img src="/images/winningFace.jpg" alt="Gallery image 6" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
            
         </section>
 
         <section class="w-screen text-center" id="PastEvents" style="background-color: rgba(10, 15, 28, 1);">
             <h1 id="heading2" class="font-extrabold text-5xl md:tex-6xl lg:text-7xl">Past Events</h1>
+            <h1 class="font-black text-white text-4xl my-8 ">"Event Rewind: Ctrl + Z Time!"</h1>
             <div class="mx-12 mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
                 
                     <div class="">
@@ -173,7 +204,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="col-span-1 md:col-span-2 lg:col-span-1">
                         <div class="mb-6">
-                            <a class="text-white text-4xl" href="https://cesavit.github.io">CESA</a>
+                            <a class="text-white text-4xl" href="/">CESA</a>
                         </div>
                         <div class="mb-6">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.9576328343173!2d72.86854761490031!3d19.021588487119168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf394b345bdd%3A0x8d44ea4f85af3ceb!2sVidyalankar+Institute+of+Technology!5e0!3m2!1sen!2sin!4v1564939838462!5m2!1sen!2sin"
@@ -241,6 +272,7 @@
     }, 1000);
             }
             
+            //showMainPage();
             
             document.getElementById('video').addEventListener('ended', showMainPage);
         </script> 
