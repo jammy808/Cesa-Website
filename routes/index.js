@@ -105,28 +105,28 @@ router.get('/',async function(req, res, next) {
   // }));
   
 
-  const pasts = await pastEventModel.find();
+  // const pasts = await pastEventModel.find();
 
-  const pastEvent = await Promise.all(pasts.map(async (post) => {
-    const downloadStream = bucket.openDownloadStreamByName(post.image);
+  // const pastEvent = await Promise.all(pasts.map(async (post) => {
+  //   const downloadStream = bucket.openDownloadStreamByName(post.image);
     
-    let imageBase64 = '';
-    downloadStream.on('data', (chunk) => {
-      imageBase64 += chunk.toString('base64');
-    });
+  //   let imageBase64 = '';
+  //   downloadStream.on('data', (chunk) => {
+  //     imageBase64 += chunk.toString('base64');
+  //   });
 
-    await new Promise((resolve) => {
-      downloadStream.on('end', () => {
-        post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
-        //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
-        resolve();
-      });
-    });
+  //   await new Promise((resolve) => {
+  //     downloadStream.on('end', () => {
+  //       post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
+  //       //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
+  //       resolve();
+  //     });
+  //   });
     
-    return post;
-  }));
+  //   return post;
+  // }));
   //, arr : student.events
-  res.render('index',{event : postsWithImages, nav : true ,pastEvent :pastEvent ,arr : arr});
+  res.render('index',{event : postsWithImages, nav : true ,arr : arr});
 });
 
 router.get('/team',async function(req , res, next){
