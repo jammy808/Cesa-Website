@@ -57,31 +57,31 @@ const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true,
 /* GET home page. */
 router.get('/',async function(req, res, next) {
   var arr = null;
-  if(req.isAuthenticated()){
-    const student = await studentModel.findOne({ username: req.session.passport.user });
-    var arr = student.events;
-  }
+  // if(req.isAuthenticated()){
+  //   const student = await studentModel.findOne({ username: req.session.passport.user });
+  //   var arr = student.events;
+  // }
   
-  const posts = await eventModel.find().populate('admin');
+  // const posts = await eventModel.find().populate('admin');
 
-  const postsWithImages = await Promise.all(posts.map(async (post) => {
-    const downloadStream = bucket.openDownloadStreamByName(post.image);
+  // const postsWithImages = await Promise.all(posts.map(async (post) => {
+  //   const downloadStream = bucket.openDownloadStreamByName(post.image);
     
-    let imageBase64 = '';
-    downloadStream.on('data', (chunk) => {
-      imageBase64 += chunk.toString('base64');
-    });
+  //   let imageBase64 = '';
+  //   downloadStream.on('data', (chunk) => {
+  //     imageBase64 += chunk.toString('base64');
+  //   });
 
-    await new Promise((resolve) => {
-      downloadStream.on('end', () => {
-        post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
-        //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
-        resolve();
-      });
-    });
+  //   await new Promise((resolve) => {
+  //     downloadStream.on('end', () => {
+  //       post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
+  //       //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
+  //       resolve();
+  //     });
+  //   });
     
-    return post;
-  }));
+  //   return post;
+  // }));
 
   // const teams = await teamModel.find();
 
@@ -105,28 +105,28 @@ router.get('/',async function(req, res, next) {
   // }));
   
 
-  const pasts = await pastEventModel.find();
+  // const pasts = await pastEventModel.find();
 
-  const pastEvent = await Promise.all(pasts.map(async (post) => {
-    const downloadStream = bucket.openDownloadStreamByName(post.image);
+  // const pastEvent = await Promise.all(pasts.map(async (post) => {
+  //   const downloadStream = bucket.openDownloadStreamByName(post.image);
     
-    let imageBase64 = '';
-    downloadStream.on('data', (chunk) => {
-      imageBase64 += chunk.toString('base64');
-    });
+  //   let imageBase64 = '';
+  //   downloadStream.on('data', (chunk) => {
+  //     imageBase64 += chunk.toString('base64');
+  //   });
 
-    await new Promise((resolve) => {
-      downloadStream.on('end', () => {
-        post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
-        //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
-        resolve();
-      });
-    });
+  //   await new Promise((resolve) => {
+  //     downloadStream.on('end', () => {
+  //       post.imageBase64 = `data:image/jpeg;base64,${imageBase64}`;
+  //       //console.log(`Image Base64 for ${post.title}: ${post.imageBase64}`);
+  //       resolve();
+  //     });
+  //   });
     
-    return post;
-  }));
-  //, arr : student.events
-  res.render('index',{event : postsWithImages, nav : true ,pastEvent :pastEvent ,arr : arr});
+  //   return post;
+  // }));
+  // //, arr : student.events
+  res.render('index',{event : null, nav : true ,pastEvent :pastEvent ,arr : arr});
 });
 
 router.get('/team',async function(req , res, next){
