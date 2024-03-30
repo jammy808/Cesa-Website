@@ -12,8 +12,14 @@ var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var studentRouter = require('./routes/student');
 const fileUpload = require('express-fileupload');
+const bodyParser = require('body-parser');
+
 
 var app = express();
+
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 app.use(fileUpload());
 
 // view engine setup
