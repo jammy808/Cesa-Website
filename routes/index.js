@@ -491,7 +491,7 @@ router.get('/adminlog',function(req,res,next){
 //send mail
 const sendVerificationEmail = ({_id,email},res) => {
 
-  const currentUrl = "https://cesavit-chi.vercel.app/";
+  const currentUrl = "https://cesa-vit.vercel.app/";
 
   const uniqueString = uuidv4() + _id;
 
