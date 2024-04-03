@@ -57,9 +57,11 @@ const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true,
 /* GET home page. */
 router.get('/',async function(req, res, next) {
   var arr = null;
+  var check = null;
   if(req.isAuthenticated()){
     const student = await studentModel.findOne({ username: req.session.passport.user });
     var arr = student.events;
+    var check = 1;
   }
   
   const posts = await eventModel.find().populate('admin');
@@ -126,7 +128,7 @@ router.get('/',async function(req, res, next) {
     return post;
   }));
   //, arr : student.events
-  res.render('index',{event : postsWithImages, nav : true ,pastEvent :pastEvent ,arr : arr});
+  res.render('index',{event : postsWithImages, nav : true ,pastEvent :pastEvent ,arr : arr , check});
 });
 
 router.get('/team',async function(req , res, next){

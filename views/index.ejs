@@ -50,10 +50,12 @@
                      </div>
                      
                 </div>
-         
-                <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-5">
-                     <a href="/login" id="btn" class="top-5 right-6 px-1 md:px-3 lg:px-5 py-1 font-bold text-sm md:text-base lg:text-xl">Login</a>
-                </div>
+                
+                <% if (check == null) { %>
+                    <div class="flex justify-center items-center gap-1 md:gap-3 lg:gap-5">
+                        <a href="/login" id="btn" class="top-5 right-6 px-1 md:px-3 lg:px-5 py-1 font-bold text-sm md:text-base lg:text-xl">Login</a>
+                   </div>
+                <% } %>
             </header>      
         </div>
 
