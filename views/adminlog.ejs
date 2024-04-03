@@ -3,14 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="./images/circle-cropped.png" type="image/x-icon">
     <title>CESA-VIT</title>
 </head>
-<body>
-    <form method="post" action="/adminLog">
+<body style="background-color: rgba(15, 23, 42, 1)">
+    
+        <div class="w-screen flex justify-center">
+            <form class="text-center px-3 py-10 ml-[.5rem]" method="post" action="/adminLog">
+  
+                <h3 class="font-bold">Log In</h3>
+                
+                <div class="inputbox">
+                  <label>Admin</label>
+                  <input type="text" placeholder="name" name="username" required>
+                  <p class="msg"></p>
+                </div>
+                
+                
+                <div class="inputbox">
+                  <label>Password</label>
+                  <input type="password" placeholder="password" name="password" required>
+                 <p class="msg"></p>
+                </div>
+              
+                
+                
+                <input type="submit" value="Log in" class="submit">
+                
+                
+              </form>
+        
+        </div>
+      
+      
+      <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+  transition:all .3s;
+  user-select:none;
+  text-decoration:none;
+}
+
+
+body{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  min-height:100vh;
+  overflow:hidden; 
+  
+}
+
+
+form{
+  width:350px;
+  background:rgb(15 23 42);
+  color:#fff;
+}
+
+
+form h3{
+  color:#fff;
+  text-transform:capitalize;
+  font-size:1.8em;
+}
+
+
+form .inputbox{
+  margin:25px 0;
+  position:relative;
+}
+
+
+form .inputbox .msg{
+  font-size:.70em;
+  margin-top:5px;
+  color:rgb(190 18 60);
+}
+
+
+form .inputbox label{
+  position:absolute;
+  top:-10px;
+  right:8px;
+  padding:5px 15px;
+  width:auto;
+  font-size:.75em;
+  user-select:none;
+  color:#eee;
+  background:   rgb(210 55 179);
+  border-radius:20px;
+}
+
+
+form .inputbox input{
+  border:none;
+  outline:none;
+  padding:15px 15px;
+  width:100%;
+  font-size:1em;
+  user-select:none;
+  outline:2px solid rgb(210 55 179);
+  border-radius:5px;
+  background:#111;
+  color:#fff;
+}
+
+
+form .inputbox input:focus{
+  background:#222;
+}
+
+
+
+
+form .submit{
+  width:100%;
+  border:none;
+  outline:none;
+  padding:15px 0;
+  font-size:1em;
+  text-transform:capitalize;
+  color:#eee;
+  background:  rgb(210 55 179);
+  border-radius:5px;
+  cursor:pointer;
+}
+
+
+form .submit:hover{
+  background:#222;
+  box-shadow:0 0 20px #000;
+}
+
+
+
+form .helpBox{
+  display:flex;
+  justify-content:space-between;
+  margin-top:25px;
+  color:#777;
+  font-size:.95em;
+}
+
+
+form .helpBox a{
+  color:#777;
+}
+
+
+form .helpBox a:hover{
+  text-decoration:underline;
+}
+
+
+form .sign{
+  margin:20px 0;
+  font-size:1.2em;
+  color:#666;
+}
+
+
+form .sign a{
+  color:#fff;
+}
+
+form .sign a:hover{
+  text-decoration:underline;
+}
+
+
+form .msg{
+  font-size:.75em;
+  color:#555;
+}
+
+
+
+
+
+
+#rem{
+  accent-color:rgb(190 18 60);
+}
+
+
+      </style>
+</body>
+</html>
+
+
+    <!-- <form method="post" action="/adminLog">
         <input type="text" placeholder="name" name="username">
         <input type="password" placeholder="password" name="password">
         <button type="submit">Admin Login</button>
-    </form>
-</body>
-</html>
+    </form> -->

@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./images/circle-cropped.png" type="image/x-icon">
-    <title>CESA-VIT</title>
-</head>
-<body>
-    <h1>heyllo Event Banalo frds..</h1>
 
-    <form action="/createEvent" method="post" enctype="multipart/form-data">
+
+    <!-- <form action="/createEvent" method="post" enctype="multipart/form-data">
         <input  type="file" name="Img">
 
         <input type="text" name="title" placeholder="Title">
@@ -32,9 +23,250 @@
         <textarea  name="pos" placeholder="postition"></textarea>
         <textarea  name="title" placeholder="title"></textarea>
 
-        <input  type="submit" value="Add Member">
+        <input  type="submit" value="Add Member"> -->
 
-    </form>
-   
-</body>
-</html>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link rel="shortcut icon" href="./images/circle-cropped.png" type="image/x-icon">
+            <title>CESA-VIT</title>
+        </head>
+        <body style="background-color: rgba(15, 23, 42, 1)">
+           
+
+                <div class="w-screen flex justify-evenly">
+                    <form class="text-center px-3 py-10 ml-[.5rem]" action="/createEvent" method="post" enctype="multipart/form-data">
+          
+                        <h3 class="font-bold mb-5">Add Event</h3>
+
+                        <input  type="file" name="Img">
+                        
+                        <div class="inputbox">
+                          <label>Title</label>
+                          <input type="text" name="title" placeholder="Title">
+                          <p class="msg"></p>
+                        </div>
+        
+                        <div class="inputbox">
+                            <label>Description</label>
+                            <input type="text" name="description" placeholder="Description"></input>
+                            
+                            <p class="msg"></p>
+                        </div>
+                        
+                        
+                        <div class="inputbox">
+                          <label>Date</label>
+                          <input type="date" name="eventDate" placeholder="Event Date" style="background-color: #474142;">
+                        
+                        </div>
+                        
+                        <input type="submit" value="Create Event" class="submit">
+                        
+                      </form>
+
+
+
+                      <form class="text-center px-3 py-10 ml-[.5rem]" action="/createTeam" method="post" enctype="multipart/form-data">
+          
+                        <h3 class="font-bold mb-5">Add Team Member</h3>
+
+                        <input  type="file" name="Img">
+
+                        
+                        <div class="inputbox">
+                          <label>Name</label>
+                          <input type="text" name="name" placeholder="name">
+                          <p class="msg"></p>
+                        </div>
+        
+                        <div class="inputbox">
+                            <label>Category</label>
+                            <input  name="post" placeholder="Category"></input>
+                            
+                            <p class="msg"></p>
+                        </div>
+                        
+                        
+                        <div class="inputbox">
+                          <label>Position</label>
+                          <input  name="pos" placeholder="postition"></input>
+                         <p class="msg"></p>
+                        </div>
+                      
+                        <div class="inputbox">
+                            <label>Position</label>
+                            <input  name="title" placeholder="title"></input>
+                           <p class="msg"></p>
+                          </div>
+                        
+                        <input type="submit" value="Add member" class="submit">
+                        
+                        
+                      </form>
+                
+                </div>
+              
+              
+              <style>
+        
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+          font-family: 'Poppins', sans-serif;
+          transition:all .3s;
+          user-select:none;
+          text-decoration:none;
+        }
+        
+        
+        body{
+          display:flex;
+          justify-content:flex-start;
+          align-items:center;
+          min-height:100vh;
+          overflow:hidden; 
+          
+        }
+        
+        
+        form{
+          width:350px;
+          background:rgb(15 23 42);
+          color:#fff;
+        }
+        
+        
+        form h3{
+          color:#fff;
+          text-transform:capitalize;
+          font-size:1.8em;
+        }
+        
+        
+        form .inputbox{
+          margin:25px 0;
+          position:relative;
+        }
+        
+        
+        form .inputbox .msg{
+          font-size:.70em;
+          margin-top:5px;
+          color:rgb(190 18 60);
+        }
+        
+        
+        form .inputbox label{
+          position:absolute;
+          top:-10px;
+          right:8px;
+          padding:5px 15px;
+          width:auto;
+          font-size:.75em;
+          user-select:none;
+          color:#eee;
+          background:   rgba(242, 150, 109, 1);
+          border-radius:20px;
+        }
+        
+        
+        form .inputbox input{
+          border:none;
+          outline:none;
+          padding:15px 15px;
+          width:100%;
+          font-size:1em;
+          user-select:none;
+          outline:2px solid rgba(255, 237, 173, 1);
+          border-radius:5px;
+          background:#111;
+          color:#fff;
+        }
+        
+        
+        form .inputbox input:focus{
+          background:#222;
+        }
+        
+        
+        
+        
+        form .submit{
+          width:100%;
+          border:none;
+          outline:none;
+          padding:15px 0;
+          font-size:1em;
+          text-transform:capitalize;
+          color:#eee;
+          background:  rgba(242, 150, 109, 1);
+          border-radius:5px;
+          cursor:pointer;
+        }
+        
+        
+        form .submit:hover{
+          background:#222;
+          box-shadow:0 0 20px #000;
+        }
+        
+        
+        
+        form .helpBox{
+          display:flex;
+          justify-content:space-between;
+          margin-top:25px;
+          color:#777;
+          font-size:.95em;
+        }
+        
+        
+        form .helpBox a{
+          color:#777;
+        }
+        
+        
+        form .helpBox a:hover{
+          text-decoration:underline;
+        }
+        
+        
+        form .sign{
+          margin:20px 0;
+          font-size:1.2em;
+          color:#666;
+        }
+        
+        
+        form .sign a{
+          color:#fff;
+        }
+        
+        form .sign a:hover{
+          text-decoration:underline;
+        }
+        
+        
+        form .msg{
+          font-size:.75em;
+          color:#555;
+        }
+        
+        
+        
+        
+        
+        
+        #rem{
+          accent-color:rgb(190 18 60);
+        }
+        
+        
+              </style>
+        </body>
+        </html>
